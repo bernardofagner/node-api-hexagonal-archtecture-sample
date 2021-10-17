@@ -1,6 +1,6 @@
-import { Server } from "./Config/Server/Server";
-import { SystemController } from "./Controllers/SystemController";
-import { ApplicationRouter } from "./Routes/ApplicationRouter";
+import { Server } from "./Application/Config/Server/Server";
+import { SystemController } from "./Application/Controllers/SystemController";
+import { ApplicationRouter } from "./Application/Routes/ApplicationRouter";
 
 class Application {
 

@@ -1,12 +1,11 @@
-import { Sequelize } from 'sequelize-typescript';
-import { AppConfig } from '../../../Config/AppConfig/AppConfig';
+import { AppConfig } from "../../../Application/Config/AppConfig/AppConfig";
 
 export abstract class SqlBaseRepository {
 
-    protected database: Sequelize;
+    protected database: any;
 
     constructor() {
-        this.database = new Sequelize({
+        this.database = {
             host: AppConfig.mySqlHost,
             database: AppConfig.mySqlDatabase,
             port: AppConfig.mySqlPort,
@@ -14,7 +13,7 @@ export abstract class SqlBaseRepository {
             username: AppConfig.mySqlUsername,
             password: AppConfig.mySqlPassword,
             logging: AppConfig.mySqlLogging,
-        });
+        };
     }
 
     public async HeathCkech(): Promise<string> {

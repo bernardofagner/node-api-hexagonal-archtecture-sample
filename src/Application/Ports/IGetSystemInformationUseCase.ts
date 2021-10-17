@@ -1,5 +1,5 @@
-import IUseCaseBase from "./Base/IUseCaseBase";
+import { IUseCaseBaseWithoutRequest } from "./Base/IUseCaseBase";
 
-export default interface IGetSystemInformationUseCase extends IUseCaseBase {
+export default interface IGetSystemInformationUseCase extends IUseCaseBaseWithoutRequest {
     
 }

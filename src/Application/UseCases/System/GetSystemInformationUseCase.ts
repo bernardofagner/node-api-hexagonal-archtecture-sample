@@ -4,7 +4,7 @@ import IGetSystemInformationUseCase from "../../Ports/IGetSystemInformationUseCa
 
 class GetSystemInformationUseCase implements IGetSystemInformationUseCase {
 
-    public async ExecuteAsync(request: UsecaseRequest): Promise<UsecaseResponse> {
+    public async ExecuteAsync(): Promise<UsecaseResponse> {
 
         const systemInfo = this.createSysteminformation();
         
