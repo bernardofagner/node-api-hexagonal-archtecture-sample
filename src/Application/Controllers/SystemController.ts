@@ -17,16 +17,9 @@ export class SystemController {
     constructor() { }
     //#endregion
 
-    //#region Métodos públicos
     public async GetSystemInformation(request: Request, response: Response): Promise<any> {
-
-        try {
-            const result = await new GetSystemInformationUseCase().ExecuteAsync();
-            return response.status(status.OK).json(result);
-        }
-        catch (Exception) {
-            response.status(status.INTERNAL_SERVER_ERROR).json(Exception);
-        }
+    
+        const result = await new GetSystemInformationUseCase().ExecuteAsync();
+        return response.status(status.OK).json(result);
     }
-    //#endregion
 }

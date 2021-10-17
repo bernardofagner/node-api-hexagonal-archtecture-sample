@@ -1,5 +1,5 @@
 import { SystemController } from "../Controllers/SystemController"
-import { Router } from "express";
+import { Request, Response, Router } from "express";
 export class ApplicationRouter {
 
     //#region Propriedades
@@ -24,3 +24,9 @@ export class ApplicationRouter {
     }
     //#endregion
 }
+
+export const asyncHandler = (fn: any) => (req: Request, res: Response, next: any) => {
+    return Promise
+        .resolve(fn(req, res, next))
+        .catch(next);
+};

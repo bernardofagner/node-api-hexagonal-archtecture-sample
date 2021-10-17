@@ -1,6 +1,8 @@
+import { Request, Response } from "express";
 import { Server } from "./Application/Config/Server/Server";
 import { SystemController } from "./Application/Controllers/SystemController";
-import { ApplicationRouter } from "./Application/Routes/ApplicationRouter";
+import { ApplicationRouter, asyncHandler } from "./Application/Routes/ApplicationRouter";
+import { ErrorHandling } from "./Application/Utils/Exceptions/ErrorHandling";
 
 class Application {
 
@@ -16,12 +18,15 @@ class Application {
         this.app = this.instanciaServidor.createApp();
         this.app.use(this.instanciaServidor.configureJsonRequestsAndResponses());
         this.app.use(this.instanciaServidor.configureCorsPolicy());
+        
         this.ApplicationRouter = new ApplicationRouter(
             new SystemController()
         );
+            
+        this.app.use('/', asyncHandler(this.ApplicationRouter.getSystemControllerRoutes()));
 
-        this.app.use('/', this.ApplicationRouter.getSystemControllerRoutes());
-    }
+        this.app.use(ErrorHandling.HandleError);
+    };
     //#endregion
 
     //#region Inicializacao

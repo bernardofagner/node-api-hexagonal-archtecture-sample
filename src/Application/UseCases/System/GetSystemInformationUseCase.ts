@@ -6,6 +6,9 @@ class GetSystemInformationUseCase implements IGetSystemInformationUseCase {
 
     public async ExecuteAsync(): Promise<UsecaseResponse> {
 
+        const erro = {erro: 'erro', status: 666};
+        throw erro;
+        
         const systemInfo = this.createSysteminformation();
         
         systemInfo.Validate();
