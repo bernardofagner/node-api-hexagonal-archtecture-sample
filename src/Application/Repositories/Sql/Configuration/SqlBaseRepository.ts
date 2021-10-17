@@ -1,4 +1,4 @@
-import { AppConfig } from "../../../Application/Config/AppConfig/AppConfig";
+import { AppConfig } from "../../../Config/AppConfig/AppConfig";
 
 export abstract class SqlBaseRepository {
 
